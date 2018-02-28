@@ -9,7 +9,7 @@ Depois de realizados testes sobre um ficheiro genérico `.mp3`, foram notadas dr
 
 Enquanto que o ficheiro áudio que possui uma frequência de amostragem de `44100hz` demonstra uma qualidade muito semelhante à do ficheiro original, sem diferenças audíveis, o de `11025hz` possui uma qualidade bastante inferior, notando-se também que o som é vagamente mais grave e possui algum ruído.
 
-Isto deve-se probavelmente à utilização de filtros por parte do programa VLC que cortam frequências altas.
+Isto deve-se provavelmente à utilização de filtros por parte do programa VLC que cortam frequências altas.
 
 ## 2. Variação da frequência de amostragem usando ou não filtros
 
@@ -102,3 +102,23 @@ Dum ponto de vista subjetivo, os sons produzidos possuíam distinguidamente uma 
 Na terceira e última parte deste trabalho prático, foi pedida para realizar uma quantização uniforme sobre um ficheiro `.wav` com pelo menos `44100hz` e `16 bits` por amostra, reduzindo o número de bits de amostra para `8` e `4 bits` e relatar as diferenças observadas.
 
 Para a realização deste teste, foi utilizada a script fornecida `quant_uniform.m`, que permite observar as diferenças entre o som original e o som quantizado.
+
+Os resultados obtidos foram os seguintes:
+
+8 bits
+
+![alt text](8bits/894dee9396ac1fc440e0469c8d6f8963.png)
+
+![alt text](8bits/4e2b27b1407070e33f6d5b383cbaa699.png)
+
+4 bits
+
+![alt text](4bits/05cdf217cd23fc360c6f217a9ae1c260.png)
+
+![alt text](4bits/785ada6286a7db501ecb516af5629d35.png)
+
+Como se vê nos primeiros gráficos, a quantização de `8 bits` produz um som relativamente próximo ao original, mas com uma ligeira perda de qualidade já que este número de bits apenas permite `256` níveis. No entanto, a quantização de `4 bits` produz um som muito diferente do original e é facilmente observável no gráfico os diferentes níveis possiveis a azul, que são `16`.
+
+Dum ponto de vista subjetivo, a diferença entre `16` e `8` bits é percetível mas mínima, enquanto que `4` bits produz um som muito ruidoso, quase inaudível.
+
+Devido a um erro na script, não é possível calcular o erro e o PSNR resultante da quantização, no entanto é previsível que o valor de PSNR de `16` bits seja ligeiramente superior ao de `8` bits, e que o de `4` bits seja muito inferior ao de `8` e `16`, e que o erro entre `16` e `8` seja inferior ao erro entre `16` e `4` bits.
