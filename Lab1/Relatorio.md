@@ -99,7 +99,11 @@ Dum ponto de vista subjetivo, os sons produzidos possuíam distinguidamente uma 
 
 ## 3. Experiências de quantização
 
-Na terceira e última parte deste trabalho prático, foi pedida para realizar uma quantização uniforme sobre um ficheiro `.wav` com pelo menos `44100hz` e `16 bits` por amostra, reduzindo o número de bits de amostra para `8` e `4 bits` e relatar as diferenças observadas.
+Na terceira e última parte deste trabalho prático, foi pedidO para realizar duas quantizações uniformes sobre um ficheiro `.wav` com pelo menos `44100hz` e `16 bits` por amostra.
+
+Quantização consiste em reduzir o número de bits usados para representar cada amostra. Nesta etapa, são pedidas para fazer quantizações para `8` e `4` bits.
+
+O ficheiro a ser utilizado é `music10seconds.wav`, que encontra os requerimentos expressos no enunciado.
 
 Para a realização deste teste, foi utilizada a script fornecida `quant_uniform.m`, que permite observar as diferenças entre o som original e o som quantizado.
 
@@ -121,4 +125,4 @@ Como se vê nos primeiros gráficos, a quantização de `8 bits` produz um som r
 
 Dum ponto de vista subjetivo, a diferença entre `16` e `8` bits é percetível mas mínima, enquanto que `4` bits produz um som muito ruidoso, quase inaudível.
 
-Devido a um erro na script, não é possível calcular o erro e o PSNR resultante da quantização, no entanto é previsível que o valor de PSNR de `16` bits seja ligeiramente superior ao de `8` bits, e que o de `4` bits seja muito inferior ao de `8` e `16`, e que o erro entre `16` e `8` seja inferior ao erro entre `16` e `4` bits.
+Devido a um erro na script, não é possível calcular o erro de quantização(diferença entre valor real e valor quantizado) e o PSNR resultante da quantização, no entanto é previsível que o valor de PSNR de `16` bits seja ligeiramente superior ao de `8` bits, e que o de `4` bits seja muito mais inferior ao de `8` e `16`, e que o erro entre `16` e `8` seja inferior ao erro entre `16` e `4` bits.
