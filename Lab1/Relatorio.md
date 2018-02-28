@@ -39,7 +39,7 @@ Nos gráficos da esquerda, vê-se que o número de amostras do sinal foi reduzid
 
 Pode-se também observar que, devido ao efeito de aliasing, são introduzidas frequências altas que não existiam anteriormente.
 
-Isto deve-se ao facto de que ao reduzir o número de  amostras, também se está a reduzir a taxa de amostragem, e, consequentemente, a frequência de `Nyquist` do sinal sub amostrado é menor. A frequência de `Nyquist` do sinal sub amostrado com `k=2` é `2756.25hz` e com `k=4` é `1378.125hz`. Isto impede que as frequências acima destas sejam reconstruidas com perfeito detalhe.
+Isto deve-se ao facto de que ao reduzir o número de  amostras, também se está a reduzir a taxa de amostragem, e, consequentemente, a frequência de `Nyquist` do sinal sub amostrado é menor. A frequência de `Nyquist` do sinal sub amostrado com `k=2` é `2756.25hz` e com `k=4` é `1378.125hz`. Isto impede que as frequências acima destas sejam reconstruidas com perfeito detalhe. As frequências que são menores que a frequência de `Nyquist` estão na banda passante, enquanto que as frequências que são maiores estão na banda de corte, e devem ser atenuadas de forma a evitar o aparecimento de frequências que não existem. 
 
 Ao não utilizar um filtro, os resultados obtidos depois da interpolação são os seguintes:
 
@@ -51,7 +51,7 @@ Fator 4
 
 ![alt text](nofilter4\5412a0ee2e0b0ac4be722ea34a9609be.png)
 
-Como é evidente, embora a magnitude das baixas frequências seja relativamente realista, surgiram frequências altas mesmo depois da interpolação.
+Como é evidente, embora a magnitude das baixas frequências seja relativamente realista, surgiram frequências altas mesmo depois da interpolação que não existem no sinal original.
 
 Torna-se assim necessário a utilização de um filtro `passa baixo` que permita cortar as frequências indesejadas:
 
@@ -69,8 +69,6 @@ Fator 4
 ![alt text](filter4\fa3d65ee1267e0861d46d88f07d529c4.png)
 
 Observando os gráficos da direita, conclui-se que o filtro atenua frequências aproximadamente para cima dos `4000hz` para a sub amostragem de fator 2 e `2000hz` para sub amostragem de fator 4, que são valores ligeiramente superiores às frequências de `Nyquist` dos sinais sub amostrados, pois não é necessário cortar todas as frequências que são muito pouco superiores à frequência de `Nyquist`.
-
-As frequências que são pouco afetadas pelo filtro, ou não afetadas estão na banda passante, enquanto que as frequências que são atenuadas estão na banda de corte.
 
 Depois de efetuada a interpolação dos sinais filtrados, obtêm-se os seguintes resultados:
 
