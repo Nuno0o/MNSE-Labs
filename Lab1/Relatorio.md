@@ -14,9 +14,9 @@ Isto deve-se probavelmente à utilização de filtros por parte do programa VLC 
 
 Na segunda parte deste trabalho, é pedida a realização de sub amostragem de um ficheiro de som `.wav`, sendo esta feita com os fatores inteiros 4 e 2, utilizando ou não filtros `passa baixo`.
 
-Para a realização dos testes, foi usado o ficheiro fornecido `batman_theme_x.wav` que possui `70464` amostras e uma frequência de amostragem de `11025hz`.
+Sub amostragem consiste na redução do número de amostras presentes no som utilizado. Ao realizar uma sub amostragem com fator 2, uma em cada duas amostras é removida, enquanto que ao utilizar um fator 4, apenas se mantém uma em cada quatro amostras.
 
-Para a realização dos testes acima mencionados, foram usadas 2 funções `Matlab` fornecidas `amostragemInterp_semFiltro.m` e `amostragemInterp_comFiltro.m`.
+Para a realização dos testes, foi usado o ficheiro fornecido `batman_theme_x.wav` que possui `70464` amostras e uma frequência de amostragem de `11025hz`, em conjunto com 2 funções `Matlab` fornecidas `amostragemInterp_semFiltro.m` e `amostragemInterp_comFiltro.m`.
 
 As duas funções reproduzem inicialmente o som com a taxa de amostragem normal, sendo este o resultante gráfico:
 
@@ -63,7 +63,7 @@ Fator 4
 
 ![alt text](filter4\fa3d65ee1267e0861d46d88f07d529c4.png)
 
-Observando os gráficos da direita, conclui-se que o filtro atenua frequências aproximadamente para cima dos `4000hz` para a sub amostragem de fator 2 e `2000hz` para sub amostragem de fator 4, que são predominantemente os intervalos de frequências indesejadas.
+Observando os gráficos da direita, conclui-se que o filtro atenua frequências aproximadamente para cima dos `5000hz` para a sub amostragem de fator 2 e `2500hz` para sub amostragem de fator 4, que são predominantemente os intervalos de frequências indesejadas.
 
 Depois de efetuada a interpolação dos sinais filtrados, obtêm-se os seguintes resultados:
 
@@ -91,3 +91,6 @@ Também se pode verificar que com um fator de 2 e utilização de filtro, o som 
 Dum ponto de vista subjetivo, os sons produzidos possuíam distinguidamente uma pior qualidade, principalmente com fator de sub amostragem 4, no entanto a utilização de filtros retirou bastante ruído e produziu um som mais grave, no entanto com melhor qualidade do que sem filtro.
 
 ## 3. Experiências de quantização
+
+Na terceira e última parte deste trabalho prático, foi pedida para realizar uma quantização uniforme sobre um ficheiro `.wav` com pelo menos `44100hz` e `16 bits` por amostra, reduzindo o número de bits de amostra para `8` e `4 bits` e relatar as diferenças observadas.
+
