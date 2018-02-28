@@ -1,4 +1,5 @@
 # Relatório de MNSE : Lab1
+## Elaborado por Nuno Jorge Dias Carneiro Martins / up201405079
 
 ## 1. Parte introdutória
 
@@ -14,13 +15,15 @@ Isto deve-se probavelmente à utilização de filtros por parte do programa VLC 
 
 Na segunda parte deste trabalho, é pedida a realização de sub amostragem de um ficheiro de som `.wav`, sendo esta feita com os fatores inteiros 4 e 2, utilizando ou não filtros `passa baixo`.
 
-Sub amostragem consiste na redução do número de amostras presentes no som utilizado. Ao realizar uma sub amostragem com fator 2, uma em cada duas amostras é removida, enquanto que ao utilizar um fator 4, apenas se mantém uma em cada quatro amostras.
+Sub amostragem consiste na redução do número de amostras presentes no som utilizado. Ao realizar uma sub amostragem com fator 2, uma em cada duas amostras é mantida, enquanto que ao utilizar um fator 4, apenas se mantém uma em cada quatro amostras.
 
 Para a realização dos testes, foi usado o ficheiro fornecido `batman_theme_x.wav` que possui `70464` amostras e uma frequência de amostragem de `11025hz`, em conjunto com 2 funções `Matlab` fornecidas `amostragemInterp_semFiltro.m` e `amostragemInterp_comFiltro.m`.
 
-As duas funções reproduzem inicialmente o som com a taxa de amostragem normal, sendo este o resultante gráfico:
+As duas funções reproduzem inicialmente o som com a taxa de amostragem normal, sendo este o gráfico resultante:
 
 ![alt text](nofilter4\1c364f7ec50da941afaf4f1de7d8d5ea.png)
+
+Como seria esperado, todas as frequências observadas estão abaixo da frequência de `Nyquist`, que possui um valor igual à metade da taxa de amostragem do sinal, que é `5512.5hz`.
 
 Depois de realizada a sub amostragem do som, são obtidos os seguintes gráficos para os fatores `2` e `4` respetivamente:
 
@@ -32,9 +35,11 @@ Fator 4
 
 ![alt text](nofilter4\d280ad776363626c15eeafe0533d02d5.png)
 
-Pode-se observar que, devido ao efeito de aliasing, são introduzidas frequências altas que não existiam anteriormente.
+Nos gráficos da esquerda, vê-se que o número de amostras do sinal foi reduzido com um fator igual ao mencionado.
 
-Isto deve-se ao facto de que ao reduzir o número de  amostras, também se está a reduzir a taxa de amostragem, e assim esta passa a ser inferior a frequência de Nyquist, que é igual a 11025/2 hz. Isto impede que as frequências altas sejam reconstruidas com perfeito detalhe.
+Pode-se também observar que, devido ao efeito de aliasing, são introduzidas frequências altas que não existiam anteriormente.
+
+Isto deve-se ao facto de que ao reduzir o número de  amostras, também se está a reduzir a taxa de amostragem, e, consequentemente, a frequência de `Nyquist` do sinal sub amostrado é menor. A frequência de `Nyquist` do sinal sub amostrado com `k=2` é `2756.25hz` e com `k=4` é `1378.125hz`. Isto impede que as frequências acima destas sejam reconstruidas com perfeito detalhe.
 
 Ao não utilizar um filtro, os resultados obtidos depois da interpolação são os seguintes:
 
@@ -63,7 +68,9 @@ Fator 4
 
 ![alt text](filter4\fa3d65ee1267e0861d46d88f07d529c4.png)
 
-Observando os gráficos da direita, conclui-se que o filtro atenua frequências aproximadamente para cima dos `5000hz` para a sub amostragem de fator 2 e `2500hz` para sub amostragem de fator 4, que são predominantemente os intervalos de frequências indesejadas.
+Observando os gráficos da direita, conclui-se que o filtro atenua frequências aproximadamente para cima dos `4000hz` para a sub amostragem de fator 2 e `2000hz` para sub amostragem de fator 4, que são valores ligeiramente superiores às frequências de `Nyquist` dos sinais sub amostrados, pois não é necessário cortar todas as frequências que são muito pouco superiores à frequência de `Nyquist`.
+
+As frequências que são pouco afetadas pelo filtro, ou não afetadas estão na banda passante, enquanto que as frequências que são atenuadas estão na banda de corte.
 
 Depois de efetuada a interpolação dos sinais filtrados, obtêm-se os seguintes resultados:
 
@@ -86,7 +93,7 @@ Para os testes realizados, foram calculados os valores de `Erro médio quadráti
 
 Como se pode confirmar pelos valores obtidos, fatores de sub amostragem menores geram um sinal com menor erro e maior PSNR, e a utilização de filtros também produz um erro menor e um PSNR maior.
 
-Também se pode verificar que com um fator de 2 e utilização de filtro, o som possui um PSNR considerado aceitável, enquanto que os outros são medíocres.
+Também se pode verificar que com um fator de 2 e utilização de filtro, o som possui um PSNR considerado aceitável, enquanto que os outros são medíocres, sendo o sem filtro e fator 4 o pior.
 
 Dum ponto de vista subjetivo, os sons produzidos possuíam distinguidamente uma pior qualidade, principalmente com fator de sub amostragem 4, no entanto a utilização de filtros retirou bastante ruído e produziu um som mais grave, no entanto com melhor qualidade do que sem filtro.
 
@@ -94,3 +101,4 @@ Dum ponto de vista subjetivo, os sons produzidos possuíam distinguidamente uma 
 
 Na terceira e última parte deste trabalho prático, foi pedida para realizar uma quantização uniforme sobre um ficheiro `.wav` com pelo menos `44100hz` e `16 bits` por amostra, reduzindo o número de bits de amostra para `8` e `4 bits` e relatar as diferenças observadas.
 
+Para a realização deste teste, foi utilizada a script fornecida `quant_uniform.m`, que permite observar as diferenças entre o som original e o som quantizado.
