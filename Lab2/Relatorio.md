@@ -52,5 +52,5 @@ De seguida, as imagens são separadas nas suas componentes `RGB`, sendo estes os
 
 |Original|R|G|B|
 |-|-|-|-|
-|![](images/1.1-1-o.png =200x)|![](images/1.1-1-r.png =200x)|![](images/1.1-1-g.png =200x)|![](images/1.1-1-b.png =200x)|
+|![](images/1.1-1-o.png){width=200x}|![](images/1.1-1-r.png =200x)|![](images/1.1-1-g.png =200x)|![](images/1.1-1-b.png =200x)|
 
