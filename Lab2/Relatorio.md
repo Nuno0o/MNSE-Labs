@@ -18,12 +18,15 @@ O código da script criada é o seguinte:
 
 ```matlab
 function [] = ex11(imagePath);
+[filepath,name,ext] = fileparts(imagePath)
 
 %parte 1.1 i)
 image = imread(imagePath);
+if size(image,3) ~= 3
+	image = cat(3,image,image,image);
+end
 disp('Imagem:');
 figure(1),imshow(image),title('imagem original');
-
 %parte 1.1 ii)
 r = image(:,:,1);
 g = image(:,:,2);
@@ -46,11 +49,14 @@ figure(7),imshow(s),title('saturation');
 figure(8),imshow(v),title('brightness');
 ```
 
-Na primeira parte, é simplesmente lida a imagem através da utilização da função `imread()` e a imagem é mostrada com `imshow()`.
+Na primeira parte, é simplesmente lida a imagem através da utilização da função `imread()` e a imagem é mostrada com `imshow()`. Também é testado se a imagem está no formato `grayscale`, convertendo-a para `RGB` caso isto se verifique, sendo os valores de todas as componentes iguais.
 
 De seguida, as imagens são separadas nas suas componentes `RGB`, sendo estes os resultados observados:
 
 |Original|R|G|B|
 |-|-|-|-|
-|![](images/1.1-1-o.png){width=200x}|![](images/1.1-1-r.png =200x)|![](images/1.1-1-g.png =200x)|![](images/1.1-1-b.png =200x)|
-
+|![](images/testRGB-original.bmp)|![](images/testRGB-red.bmp)|![](images/testRGB-green.bmp)|![](images/testRGB-blue.bmp)|
+|![](images/floresVermelhas-original.bmp)|![](images/floresVermelhas-red.bmp)|![](images/floresVermelhas-green.bmp)|![](images/floresVermelhas-blue.bmp)|
+|![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-red.bmp)|![](images/folhasVerdes-green.bmp)|![](images/folhasVerdes-blue.bmp)|
+|![](images/praia-original.bmp)|![](images/praia-red.bmp)|![](images/praia-green.bmp)|![](images/praia-blue.bmp)|
+|![](images/elephant-original.bmp)|![](images/elephant-red.bmp)|![](images/elephant-green.bmp)|![](images/elephant-blue.bmp)|
