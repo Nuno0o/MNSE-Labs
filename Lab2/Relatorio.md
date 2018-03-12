@@ -74,3 +74,38 @@ Na parte seguinte, a imagem é convertida para o formato `HSV`, e os seus compon
 |![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-hue.bmp)|![](images/folhasVerdes-sat.bmp)|![](images/folhasVerdes-brigh.bmp)|
 |![](images/praia-original.bmp)|![](images/praia-hue.bmp)|![](images/praia-sat.bmp)|![](images/praia-brigh.bmp)|
 |![](images/elephant-original.bmp)|![](images/elephant-hue.bmp)|![](images/elephant-sat.bmp)|![](images/elephant-brigh.bmp)|
+
+No formato `HSV`, sigla para (Hue,Saturation,Value), o primeiro `byte` representa o ângulo no círculo das cores do pixel(ou seja, a cor), o 2º `byte` representa a intensidade desta cor e o 3º `byte` define o brilho.
+
+Na primeira imagem, observa-se que `vermelho` possuí um valor menor, pois tem um angulo menor no círculo das cores, enquanto que o azul tem um valor alto, pelo que possuí um ângulo elevado no círculo.  
+Este padrão verifica-se nos valores de Hue das outras imagens, com o caso especial das flores vermelhas, que possuí um valor elevado embora a cor seja vermelha. Isto deve-se ao facto de ser um vermelho rosado, pelo que tem um ângulo ligeiramente inferior ao vermelho, e, por isso, um valor elevado.  
+Também se verifica que na imagem do elefante os valores de `Hue` e `Saturation` são 0. O facto de a saturação ser 0 deve-se ao facto do cálculo deste valor ser igual a `(MAX-MIN)/MAX` (sendo `MAX` o maior valor no espaço `RGB` e `MIN` o menor). Como a imagem está em escala cinza, estes valores serão sempre iguais, pelo que a saturação será sempre 0. De notar também que o valor de `Hue` é irrelevante quando a `saturação` é 0.
+
+### 1.2. Conversão de RGB para YCbCr
+
+Nesta secção, foi desenvolvida uma script que converte uma imagem do formato `RGB` para uma imagem no formato `YCbCr`.
+
+O código desenvolvido é o seguinte(trata-se de uma extensão do código desenvolvido para a parte anterior):
+
+```matlab
+%parte 1.2
+image3 = rgb2ycbcr(image);
+figure(9),imshow(image3),title('imagem em ycbcr');
+
+y = image3(:,:,1);
+cb = image3(:,:,2);
+cr = image3(:,:,3);
+figure(10),imshow(y),title('luminance');
+figure(11),imshow(cb),title('cb');
+figure(12),imshow(image),title('cr');
+```
+
+O resultados obtidos foram os seguintes:
+
+|Original|Y|Cb|Cr|
+|-|-|-|-|
+|![](images/testRGB-original.bmp)|![](images/testRGB-y.bmp)|![](images/testRGB-cb.bmp)|![](images/testRGB-cr.bmp)|
+|![](images/floresVermelhas-original.bmp)|![](images/floresVermelhas-y.bmp)|![](images/floresVermelhas-cb.bmp)|![](images/floresVermelhas-cr.bmp)|
+|![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-y.bmp)|![](images/folhasVerdes-cb.bmp)|![](images/folhasVerdes-cr.bmp)|
+|![](images/praia-original.bmp)|![](images/praia-y.bmp)|![](images/praia-cb.bmp)|![](images/praia-cr.bmp)|
+|![](images/elephant-original.bmp)|![](images/elephant-y.bmp)|![](images/elephant-cb.bmp)|![](images/elephant-cr.bmp)|
