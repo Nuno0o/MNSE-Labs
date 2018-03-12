@@ -110,3 +110,14 @@ O resultados obtidos foram os seguintes:
 |![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-y.bmp)|![](images/folhasVerdes-cb.bmp)|![](images/folhasVerdes-cr.bmp)|
 |![](images/praia-original.bmp)|![](images/praia-y.bmp)|![](images/praia-cb.bmp)|![](images/praia-cr.bmp)|
 |![](images/elephant-original.bmp)|![](images/elephant-y.bmp)|![](images/elephant-cb.bmp)|![](images/elephant-cr.bmp)|
+
+No modelo `YCbCr`, `Y` representa a luminância. Esta é uma soma pesada das 3 componentes `RGB`, tendo maior intensidade na componente `Verde` pois os olhos humanos são mais sensiveis a esta e menos a `Azul`. `Cb` e `Cr` representam as `crominâncias` azul e vermelha, que são a subtração da `luminância` pelos valores de `B` e `R`. Estas componentes guardam informação menos imperativa à representação da imagem relativa principalmente às cores `Azul` e `Vermelha`.
+Este formato possuí a vantagem de separar a `luminância`, que é o fator mais importante na representação das imagens, dos valores de `crominância` que são menos importantes, permitindo a realização de `subsampling` a estas componentes sem grande perda de qualidade, pois os olhos não são tão sensíveis a estas.
+
+Nas imagens produzidas, observa-se que as que representam a `luminância` possuem uma maior nitidez do que as de `crominância`. As primeiras são muito próximas do que seria uma imagem em `greyscale` na escala `RGB`, no entanto tem maior intensidade nas zonas `verdes` do que `vermelhas` e `azuis`. Por exemplo, na imagem das folhas verdes, observa-se que as `crominâncias` possuem um valor baixo, enquanto que a `crominância vermelha` apresenta um valor ligeiramente elevado para as flores vermelhas, e a `crominância azul` para o céu na praia.
+
+### 1.3 Conversão de RGB para YUV
+
+## 2. Variação  das  dimensões  espaciais  de  imagem  usando  ou  não  filtros  com imagem de teste “imzoneplate”
+
+## 3. Experiências de filtragem
