@@ -60,3 +60,17 @@ De seguida, as imagens são separadas nas suas componentes `RGB`, sendo estes os
 |![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-red.bmp)|![](images/folhasVerdes-green.bmp)|![](images/folhasVerdes-blue.bmp)|
 |![](images/praia-original.bmp)|![](images/praia-red.bmp)|![](images/praia-green.bmp)|![](images/praia-blue.bmp)|
 |![](images/elephant-original.bmp)|![](images/elephant-red.bmp)|![](images/elephant-green.bmp)|![](images/elephant-blue.bmp)|
+
+No formato `RGB`, são usados 3 `bytes` para guardar cada pixel, sendo cada `byte` correspondente a uma cor: `Vermelho`, `Verde` ou `Azul`. As cores são obtidas através da mistura destas 3 cores, em quantidades determinadas. Quando a mistura das três cores está no valor mínimo (0, 0, 0), o resultado é a cor preta. Quanto está no máximo (255, 255, 255), resulta na cor branca. A utilização de valores menores gera cores mais escuras, e valores maiores geram cores claras.
+
+Os resultados obtidos são os esperados. As cores mais predominantes nas imagens originais são mais claras na componente correspondente. Por exemplo, a componente vermelha das flores vermelhas é de longe a mais intensa, enquanto que a componente verde é a mais clara nas folhas verdes. Isto deve-se ao facto de estes componentes possuirem valores mais elevados, e quanto mais forte, mais claro é imprimido no ecrã. No caso do elefante, todas as componentes têm o mesmo valor, já que a imagem original está em `grayscale`.
+
+Na parte seguinte, a imagem é convertida para o formato `HSV`, e os seus componentes são separados. Os resultados obtidos são os seguintes:
+
+|Original|H|S|V|
+|-|-|-|-|
+|![](images/testRGB-original.bmp)|![](images/testRGB-hue.bmp)|![](images/testRGB-sat.bmp)|![](images/testRGB-brigh.bmp)|
+|![](images/floresVermelhas-original.bmp)|![](images/floresVermelhas-hue.bmp)|![](images/floresVermelhas-sat.bmp)|![](images/floresVermelhas-brigh.bmp)|
+|![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-hue.bmp)|![](images/folhasVerdes-sat.bmp)|![](images/folhasVerdes-brigh.bmp)|
+|![](images/praia-original.bmp)|![](images/praia-hue.bmp)|![](images/praia-sat.bmp)|![](images/praia-brigh.bmp)|
+|![](images/elephant-original.bmp)|![](images/elephant-hue.bmp)|![](images/elephant-sat.bmp)|![](images/elephant-brigh.bmp)|
