@@ -3,7 +3,9 @@
 
 ## 1. Espaços de cor
 
-Na primeira parte deste trabalho, é pedido que se desenvolva uma script `Matlab` que leia um ficheiro `.bmp`(bitmap), e que seja analisa a representação deste em diferentes formatos, sendo estes `RGB`, `HSV`, `YCbCr` e `YUV`.
+Na primeira parte deste trabalho, é pedido que se desenvolva uma script `Matlab` que leia um ficheiro `.bmp`(bitmap), e que seja analisa a representação deste em diferentes espaços de cor.  
+Um espaço de cor é um modelo que representa sinais visuais de formas previamente definidas.
+Os espaços de cor utilizados são `RGB`, `HSV`, `YCbCr` e `YUV`. De notar que não foram colocadas as imagens que eram imprimidas nos formatos `HSV`, `YCbCr` e `YUV`, já que estas eram imprimidas como se fossem imagens `RGB` e, por isso, não trariam nada de mais construtivo do que as suas componentes que serão mostradas à frente.
 
 ### 1.1. Conversão de RGB para HSV
 
@@ -18,7 +20,6 @@ O código da script criada é o seguinte:
 
 ```matlab
 function [] = ex11(imagePath);
-[filepath,name,ext] = fileparts(imagePath)
 
 %parte 1.1 i)
 image = imread(imagePath);
@@ -117,6 +118,8 @@ Este formato possuí a vantagem de separar a `luminância`, que é o fator mais 
 Nas imagens produzidas, observa-se que as que representam a `luminância` possuem uma maior nitidez do que as de `crominância`. As primeiras são muito próximas do que seria uma imagem em `greyscale` na escala `RGB`, no entanto tem maior intensidade nas zonas `verdes` do que `vermelhas` e `azuis`. Por exemplo, na imagem das folhas verdes, observa-se que as `crominâncias` possuem um valor baixo, enquanto que a `crominância vermelha` apresenta um valor ligeiramente elevado para as flores vermelhas, e a `crominância azul` para o céu na praia.
 
 ### 1.3 Conversão de RGB para YUV
+
+Na terceira e última secção, foi utilizada uma script fornecida que converte uma imagem do formato `RGB` para o formato `YUV`, mostrando as suas componentes, e, de seguida, revertendo para `RGB`.
 
 ## 2. Variação  das  dimensões  espaciais  de  imagem  usando  ou  não  filtros  com imagem de teste “imzoneplate”
 
