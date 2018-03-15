@@ -3,7 +3,7 @@
 
 ## 1. Espaços de cor
 
-Na primeira parte deste trabalho, é pedido que se desenvolva uma script `Matlab` que leia um ficheiro `.bmp`(bitmap), e que seja analisa a representação deste em diferentes espaços de cor.  
+Na primeira parte deste trabalho, é pedido que sejam usasa scripts `Matlab` que leiam ficheiros `.bmp`(bitmap), e que seja analisada a representação destes em diferentes espaços de cor.  
 Um espaço de cor é um modelo que representa sinais visuais de formas previamente definidas.
 Os espaços de cor utilizados são `RGB`, `HSV`, `YCbCr` e `YUV`. De notar que não foram colocadas as imagens que eram imprimidas nos formatos `HSV`, `YCbCr` e `YUV`, já que estas eram imprimidas como se fossem imagens `RGB` e, por isso, não trariam nada de mais construtivo do que as suas componentes que serão mostradas à frente.
 
@@ -63,6 +63,7 @@ De seguida, as imagens são separadas nas suas componentes `RGB`, sendo estes os
 |![](images/elephant-original.bmp)|![](images/elephant-red.bmp)|![](images/elephant-green.bmp)|![](images/elephant-blue.bmp)|
 
 No formato `RGB`, são usados 3 `bytes` para guardar cada pixel, sendo cada `byte` correspondente a uma cor: `Vermelho`, `Verde` ou `Azul`. As cores são obtidas através da mistura destas 3 cores, em quantidades determinadas. Quando a mistura das três cores está no valor mínimo (0, 0, 0), o resultado é a cor preta. Quanto está no máximo (255, 255, 255), resulta na cor branca. A utilização de valores menores gera cores mais escuras, e valores maiores geram cores claras.
+Este é o formato usado por monitores para mostrar imagem.
 
 Os resultados obtidos são os esperados. As cores mais predominantes nas imagens originais são mais claras na componente correspondente. Por exemplo, a componente vermelha das flores vermelhas é de longe a mais intensa, enquanto que a componente verde é a mais clara nas folhas verdes. Isto deve-se ao facto de estes componentes possuirem valores mais elevados, e quanto mais forte, mais claro é imprimido no ecrã. No caso do elefante, todas as componentes têm o mesmo valor, já que a imagem original está em `grayscale`.
 
@@ -76,10 +77,10 @@ Na parte seguinte, a imagem é convertida para o formato `HSV`, e os seus compon
 |![](images/praia-original.bmp)|![](images/praia-hue.bmp)|![](images/praia-sat.bmp)|![](images/praia-brigh.bmp)|
 |![](images/elephant-original.bmp)|![](images/elephant-hue.bmp)|![](images/elephant-sat.bmp)|![](images/elephant-brigh.bmp)|
 
-No formato `HSV`, sigla para (Hue,Saturation,Value), o primeiro `byte` representa o ângulo no círculo das cores do pixel(ou seja, a cor), o 2º `byte` representa a pureza desta cor e o 3º `byte` define o brilho do pixel.
+No formato `HSV`, sigla para (Hue,Saturation,Value), o primeiro `byte` representa o ângulo no círculo das cores do pixel(ou seja, a cor), o 2º `byte` representa a pureza desta cor e o 3º `byte` define o brilho do pixel. Este é um formato cuja vantagem reside na maior facilidade na manupulação de imagem.
 
 Na primeira imagem, observa-se que `vermelho` possuí um valor menor, pois tem um angulo menor no círculo das cores, enquanto que o azul tem um valor alto, pelo que possuí um ângulo elevado no círculo.  
-Este padrão verifica-se nos valores de `Hue` das outras imagens, com o caso especial das flores vermelhas, que possuí um valor elevado embora a cor seja vermelha. Isto deve-se ao facto de ser um vermelho rosado, pelo que tem um ângulo ligeiramente inferior ao vermelho, e, por isso, um valor elevado.
+Este padrão verifica-se nos valores de `Hue` das outras imagens, com o caso especial das flores vermelhas, que possuí um valor elevado embora a cor seja vermelha. Isto deve-se ao facto de ser um vermelho rosado, pelo que tem um ângulo ligeiramente inferior ao 0, e, por isso, um valor elevado.
 Os valores de `Saturação` e `Brilho` também estão de acordo com o previsto, sendo a 1ª mais elevada em zonas cuja cor é mais ou menos pura(por exemplo, o céu da praia em contraste com a areia) e a 2ª mais brilhante onde as imagens são mais claras(como por exemplo nas folhas verdes em contraste com os pontos vazios com sombra).
 Também se verifica que na imagem do elefante os valores de `Hue` e `Saturation` são 0. O facto de a saturação ser 0 deve-se ao facto do cálculo deste valor ser igual a `(MAX-MIN)/MAX` (sendo `MAX` o maior valor no espaço `RGB` e `MIN` o menor). Como a imagem está em escala cinza, estes valores serão sempre iguais, pelo que a saturação será sempre 0. De notar também que o valor de `Hue` é 0 pois `MAX = MIN`. Como o valor do `Brilho` é igual a `MAX`, a componente brilho será igual à imagem original nesta imagem, pois todas as componentes `RGB` têm um valor igual.
 
