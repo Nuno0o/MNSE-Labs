@@ -137,4 +137,6 @@ Pode-se confirmar ao observar as imagens que `YUV` guarda menos informação nas
 
 ## 2. Variação  das  dimensões  espaciais  de  imagem  usando  ou  não  filtros  com imagem de teste “imzoneplate”
 
+
+
 ## 3. Experiências de filtragem
