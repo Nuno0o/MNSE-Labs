@@ -119,7 +119,20 @@ Nas imagens produzidas, observa-se que as que representam a `luminância` possue
 
 ### 1.3 Conversão de RGB para YUV
 
-Na terceira e última secção, foi utilizada uma script fornecida que converte uma imagem do formato `RGB` para o formato `YUV`, mostrando as suas componentes, e, de seguida, revertendo para `RGB`.
+Na terceira e última secção, foi utilizada uma script fornecida que converte uma imagem do formato `RGB` para o formato `YUV`, mostrando as suas componentes, e, de seguida, reverte de volta para `RGB`.
+
+Os resultados obtidos foram os seguintes:
+
+|Original|Y|U|V|RGB(Reconstrução)
+|-|-|-|-|-|
+|![](images/testRGB-original.bmp)|![](images/testRGB-Y2.bmp)|![](images/testRGB-U.bmp)|![](images/testRGB-V.bmp)|![](images/testRGB-rgb.bmp)|
+|![](images/floresVermelhas-original.bmp)|![](images/floresVermelhas-Y2.bmp)|![](images/floresVermelhas-U.bmp)|![](images/floresVermelhas-V.bmp)|![](images/floresVermelhas-rgb.bmp)|
+|![](images/folhasVerdes-original.bmp)|![](images/folhasVerdes-Y2.bmp)|![](images/folhasVerdes-U.bmp)|![](images/folhasVerdes-V.bmp)|![](images/folhasVerdes-rgb.bmp)|
+|![](images/praia-original.bmp)|![](images/praia-Y2.bmp)|![](images/praia-U.bmp)|![](images/praia-V.bmp)|![](images/praia-rgb.bmp)|
+|![](images/elephant-original.bmp)|![](images/elephant-Y2.bmp)|![](images/elephant-U.bmp)|![](images/elephant-V.bmp)|![](images/elephant-Y2.bmp)|
+
+`YUV` é um espaço de cor que funciona da mesma forma de `YCbCr`, que no entanto usa coeficientes diferentes para a distribuição de cores.  
+Pode-se confirmar ao observar as imagens que `YUV` guarda menos informação nas componentes de `crominância` relativo às cores fora do `azul` e `vermelho` respetivamente, mas que no entanto não há perda de informação e que as imagens foram reconstruidas como esperado, e que os fundamentos do espaço de cor são iguais aos de `YCbCr`.
 
 ## 2. Variação  das  dimensões  espaciais  de  imagem  usando  ou  não  filtros  com imagem de teste “imzoneplate”
 
