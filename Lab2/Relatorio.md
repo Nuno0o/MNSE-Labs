@@ -193,7 +193,7 @@ Nesta última experiência, o objetivo é aplicar diferentes filtros a imagems e
 * `Average` : cria um efeito de "blur" na imagem, realizando uma suavização desta de forma a remover frequências altas
 * `Gaussian` : mesma função de `filtro Average`, mas utiliza uma curva de Gauss para calcular os pesos de cada píxel, dando assim maior influência aos pixeis centrais
 * `Prewitt` : realça os contornos horizontais ou verticais de uma imagem
-* `Sobel` : faz o mesmo que prewitt, mas utiliza um algoritmo ligeiramente diferente
+* `Sobel` : faz o mesmo que prewitt, mas realiza alguma suavização
 * `Unsharp` : realça todos os cantos das imagens
 
 Para o filtro `Motion`, os resultados observados foram os seguintes:
