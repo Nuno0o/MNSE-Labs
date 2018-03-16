@@ -17,7 +17,7 @@
 
 ## 1. Espaços de cor
 
-Na primeira parte deste trabalho, é pedido que sejam usasa scripts `Matlab` que leiam ficheiros `.bmp`(bitmap), e que seja analisada a representação destes em diferentes espaços de cor.  
+Na primeira parte deste trabalho, é pedido que sejam usadas scripts `Matlab` que leiam ficheiros `.bmp`(bitmap), e que seja analisada a representação destes em diferentes espaços de cor.  
 Um espaço de cor é um modelo que representa sinais visuais de formas previamente definidas.
 Os espaços de cor utilizados são `RGB`, `HSV`, `YCbCr` e `YUV`. De notar que não foram colocadas as imagens que eram imprimidas nos formatos `HSV`, `YCbCr` e `YUV`, já que estas eram imprimidas como se fossem imagens `RGB` e, por isso, não trariam nada de mais construtivo do que as suas componentes que serão mostradas à frente.
 
@@ -159,7 +159,7 @@ Os algoritmos de interpolação usados nas experiências são os seguintes:
 * `Bilinear` - a cor dos texels é igual a uma média ponderada dos `4` pixeis que estão à volta do central.
 * `Bicubica` - funciona da mesma forma que `bilinear`, mas utiliza os `16` pixeis mais próximos
 
-Devido ao facto de no formato `.pdf` as imagens serem automáticamente suavizadas, foi impossível incluir os resultados observados.
+Devido ao facto de no formato `.pdf` as imagens serem automaticamente suavizadas, foi impossível incluir os resultados observados.
 
 ### Redução de imagem
 
@@ -272,7 +272,7 @@ Para o filtro `Prewitt`, a matriz usada é:
 
 Observa-se que os contornos horizontais e verticais adquiriram uma cor branca, existindo ligeiras diferenças entre o filtro `Prewitt` e `Sobel`.
 
-A principal diferença reside na deteção de altas frequências na deteção de contornos. Devido ao filtro `Prewitt` não realizar suavização, é muitas vezes difícil encontrar contornos em situações com altas frequências, enquanto que o filtro `Sobel` realiza suavização, tendo maior facilidade em encontrar contornos em altas frequências. Este efeito é facilmente observável novamente nas barbas do Tigre, nas qual é mais facilmente ver os contornos com `Sobel` do que `Prewitt`.
+A principal diferença reside na deteção de altas frequências nos contornos. Devido ao filtro `Prewitt` não realizar suavização, é muitas vezes difícil encontrar contornos em situações com altas frequências, enquanto que o filtro `Sobel` realiza suavização, tendo maior facilidade em encontrar contornos em altas frequências. Este efeito é facilmente observável novamente nas barbas do Tigre, nas qual é mais facilmente ver os contornos com `Sobel` do que `Prewitt`.
 
 ### Filtro Unsharp
 
