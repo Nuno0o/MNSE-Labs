@@ -187,3 +187,21 @@ A diferença entre `Bilinear` e `Bicubic` já foi mais percetível durante a amp
 
 ## 3. Experiências de filtragem
 
+Nesta última experiência, o objetivo é aplicar diferentes filtros a imagems e relatar os efeitos observados. Os filtros a serem utilizados são os seguintes:
+
+* `Motion` : efeito de movimento horizontal na imagem
+* `Average` : cria um efeito de "blur" na imagem, realizando uma suavização desta de forma a remover frequências altas
+* `Gaussian` : mesma função de filtro `Average`, mas utiliza uma curva de Gauss para calcular os pesos de cada píxel, dando assim maior influência aos centrais
+* `Prewitt` : realça os contornos horizontais e verticais de uma imagem
+* `Sobel` : faz o mesmo que prewitt, mas utiliza um algoritmo ligeiramente diferente
+* `Unsharp` : realça todos os cantos das imagens
+
+Para o filtro `Motion`, os resultados observados foram os seguintes:
+
+|Original|Motion(Dimensão 3)|Motion(Dimensão 10)|
+|-|-|-|
+|![](images/tigre.bmp)|![](images/tigre-motion-3.bmp)|![](images/tigre-motion-10.bmp)|
+
+Este filtro cria uma sensação de movimento ou vibração da imagem na direção horizontal. Observa-se principalmente do resultado com dimensão 10 que parece que o tigre está em movimento.
+
+Este efeito é conseguido ao criar uma média com dimensão N dos píxeis presentes horizontalmente, conseguindo assim um efeito de "blur" linear nessa direção.
