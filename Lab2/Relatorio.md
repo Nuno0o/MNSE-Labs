@@ -208,7 +208,7 @@ Nesta última experiência, o objetivo é aplicar diferentes filtros a imagems e
 * `Gaussian` : mesma função de `filtro Average`, mas utiliza uma curva de Gauss para calcular os pesos de cada píxel, dando assim maior influência aos pixeis centrais
 * `Prewitt` : realça os contornos horizontais ou verticais de uma imagem
 * `Sobel` : faz o mesmo que prewitt, mas realiza alguma suavização
-* `Unsharp` : realça todos os cantos das imagens
+* `Unsharp` : realça todos os contornos das imagens
 
 ### Filtro motion
 
@@ -278,7 +278,10 @@ A principal diferença reside na deteção de altas frequências na deteção de
 
 Finalmente, para o filtro `unsharp`, os resultados foram os seguintes:
 
-|Original|Unsharp(Factor 0.2)|Unsharp(Factor 0.8)|
-|-|-|-|
-|![](images/tigre.bmp)|![](images/tigre-unsharp-0.bmp)|![](images/tigre-unsharp-1.bmp)
+|Original|Unsharp|
+|-|-|
+|![](images/tigre.bmp)|![](images/tigre-unsharp-0.bmp)|
+
+O efeito deste filtro é realçar contornos das imagens. Este aumenta a variação da frequência na imagem. O resultado disto é que em zonas com variações de frequência altas, como por exemplo nas barbas do tigre, a variação de frequência aumenta e é torna-se facil identificar cada contorno
+
 
