@@ -137,6 +137,53 @@ Pode-se confirmar ao observar as imagens que `YUV` guarda menos informação nas
 
 ## 2. Variação  das  dimensões  espaciais  de  imagem  usando  ou  não  filtros  com imagem de teste “imzoneplate”
 
+O objetivo desta experiência é utilizar a script `ampliaReduz.m` que, como o nome indica, pode reduzir ou amplicar uma imagem aplicando diferentes algoritmos e relatar/comentar os resultados. A imagem utilizada é uma `Zone Plate` produzida pela script `imzoneplate.m`.
 
+Os algoritmos de interpolação usados nas experiências são os seguintes:
+
+* `Nearest Neighbor` - neste algoritmo, a cor dos texels é `igual à cor do pixel` central do mesmo na imagem original.
+* `Bilinear` - a cor dos texels é igual a uma média ponderada dos `4` pixeis que estão à volta do central.
+* `Bicubica` - funciona da mesma forma que `bilinear`, mas utiliza os `16` pixeis mais próximos
+
+Devido ao facto de no formato `.pdf` as imagens serem automáticamente suavizadas, foi impossível incluir os resultados observados.
+
+### Redução de imagem
+
+Os testes de redução foram realizados com:
+
+|Tamanho|Factor|Métodos de interpolação|
+|-|-|-|
+|300|0.4|Nearest Neighbor|
+|300|0.4|Bilinear|
+|300|0.4|Bicubic|
+|600|0.4|Nearest Neighbor|
+|600|0.4|Bilinear|
+|600|0.4|Bicubic|
+
+Foi observado que, ao utilizar uma imagem com tamanho 300 com o algoritmo Nearest Neighbor, surgia um efeito de `aliasing` com repetição do padrão nos cantos, assim como uma grande deformação do formato da imagem. Isto deve-se principalmente à imagem ser pequena, pois com a imagem de tamanho 600, embora o efeito de aliasing fosse observável, não existia deformação.
+
+Este efeito de aliasing deve-se à redução da imagem, pois, longe do centro da imagem, a frequência de alteração de preto para branco é igual à densidade de pixeis presentes. Ao reduzir a imagem, `Nyquist` é quebrado, levando ao surgimento de um efeito de aliasing, que neste caso se manifesta com repetição do padrão da imagem simétricamente nos cantos.
+
+No entanto, ao utilizar o algoritmo `Bilinear`, este efeito de aliasing já é vastamente menos observável.
+Isto deve-se ao facto de este algoritmo realizar uma média dos 4 pixeis que rodeavam o pixel original, eliminando assim quase inteiramente o efeito de aliasing, assim como as deformações às imagens. Isto deve-se a que o algoritmo, ao realizar uma suavização de cada píxel da imagem produzida, suaviza também a frequência de alteração de preto para branco, e, consequentemente, esta aparenta a ser menor do que a imagem orignal, não sendo assim observável que `Nyquist` não foi respeitado.
+
+Com o algoritmo `Bicubic`, a diferença foi muito ligeira em relação a `Bilinear`, quase não percetível. A única diferença observável foi que a imagem ficava com a textura uniforme um pouco mais próximo do centro em `Bicubic`.
+
+### Ampliação de imagem
+
+Os testes de redução foram realizados com:
+
+|Tamanho|Factor|Métodos de interpolação|
+|-|-|-|
+|100|3|Nearest Neighbor|
+|100|3|Bilinear|
+|100|3|Bicubic|
+
+Utilizando o algoritmo `Nearest Neighbor`, foi observável que cada pixel era ampliado para 3x o seu tamanho, passando a ser cada pixel da imagem original um bloco com a mesma exata cor, mas o triplo do tamanho. Ao contrário do observado na redução da imagem, `não surgiu aliasing` e não houve deformação da imagem. Isto deve-se principalmente a que na ampliação não é quebrado `Nyquist`.
+
+Ao utilizar o algoritmo `Bilinear`, a imagem já era mais suave em relação à anterior, não possuindo o mesmo padrão de quadrados mas uma distribuição de cores mais uniforme.
+
+A diferença entre `Bilinear` e `Bicubic` já foi mais percetível durante a ampliação, sendo os contornos ainda mais leves.
 
 ## 3. Experiências de filtragem
+
