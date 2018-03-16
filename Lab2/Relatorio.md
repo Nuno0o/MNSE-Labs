@@ -191,8 +191,8 @@ Nesta última experiência, o objetivo é aplicar diferentes filtros a imagems e
 
 * `Motion` : efeito de movimento horizontal na imagem
 * `Average` : cria um efeito de "blur" na imagem, realizando uma suavização desta de forma a remover frequências altas
-* `Gaussian` : mesma função de filtro `Average`, mas utiliza uma curva de Gauss para calcular os pesos de cada píxel, dando assim maior influência aos centrais
-* `Prewitt` : realça os contornos horizontais e verticais de uma imagem
+* `Gaussian` : mesma função de `filtro Average`, mas utiliza uma curva de Gauss para calcular os pesos de cada píxel, dando assim maior influência aos pixeis centrais
+* `Prewitt` : realça os contornos horizontais ou verticais de uma imagem
 * `Sobel` : faz o mesmo que prewitt, mas utiliza um algoritmo ligeiramente diferente
 * `Unsharp` : realça todos os cantos das imagens
 
@@ -205,3 +205,14 @@ Para o filtro `Motion`, os resultados observados foram os seguintes:
 Este filtro cria uma sensação de movimento ou vibração da imagem na direção horizontal. Observa-se principalmente do resultado com dimensão 10 que parece que o tigre está em movimento.
 
 Este efeito é conseguido ao criar uma média com dimensão N dos píxeis presentes horizontalmente, conseguindo assim um efeito de "blur" linear nessa direção.
+
+Com os filtros `Average` e `Gaussian`, os resultados foram os seguintes:
+
+|Original|Average(Dimensão 3)|Average(Dimensão 10)|
+|-|-|-|
+|![](images/tigre.bmp)|![](images/tigre-average-3.bmp)|![](images/tigre-average-10.bmp)|
+
+|Original|Gaussian(Dimensão 3)|Gaussian(Dimensão 10)|
+|-|-|-|
+|![](images/tigre.bmp)|![](images/tigre-gaussian-3.bmp)|![](images/tigre-gaussian-10.bmp)|
+
