@@ -220,7 +220,7 @@ Estes filtros criam um efeito de "blur" na imagem, com objetivo de reduzir altas
 
 O primeiro(Average) utiliza a média dos pixeis à volta do pixel em questão para o efeito, enquanto que o segundo(Gaussian) utiliza uma curva de Gauss para calcular a influência dos pixeis que rodeiam cada pixel da imagem original.
 
-Pode-se confirmar que os efeitos do filtro Average são excessivas, causando demasiado "blur", enquanto que Gaussian blur criou contornos muito mais suaves, sendo esta mudança mais notificável, por exemplo, nos bigodes do Leão, e eliminando mesmo assim altas frequências.
+Pode-se confirmar que os efeitos do filtro Average são excessivos, causando demasiado "blur", enquanto que Gaussian blur criou contornos muito mais suaves, sendo esta mudança mais notificável, por exemplo, nos bigodes do Leão, e eliminando mesmo assim altas frequências.
 
 Para os filtros `Prewitt` e `Sobel`, os resultados observados foram os seguintes:
 
@@ -231,6 +231,28 @@ Para os filtros `Prewitt` e `Sobel`, os resultados observados foram os seguintes
 |Original|Sobel Horizontal|Sobel Vertical|
 |-|-|-|
 |![](images/tigre.bmp)|![](images/tigre-sobel-horizontal.bmp)|![](images/tigre-sobel-vertical.bmp)
+
+O objetivo deste filtro é realçar os contornos, tanto horizontalmente como verticalmente, das imagens de teste.
+
+Este efeito é conseguido ao ser calculado o gradiente da imagem usando uma matriz 3x3.
+
+Para o filtro `Prewitt`, a matriz usada é:
+
+```
+[ 1  1  1 
+  0  0  0 
+ -1 -1 -1 ]
+ ```
+ enquanto que para o filtro `Sobel`, a matriz usada é:
+ ```
+[ 1  2  1 
+  0  0  0 
+ -1 -2 -1 ]
+ ```
+
+Observa-se que os contornos horizontais e verticais adquiriram uma cor branca, existindo ligeiras diferenças entre o filtro `Prewitt` e `Sobel`.
+
+A principal diferença reside na deteção de altas frequências na deteção de contornos. Devido ao filtro `Prewitt` não realizar suavização, é muitas vezes difícil encontrar contornos em situações com altas frequências, enquanto que o filtro `Sobel` realiza suavização, tendo maior facilidade em encontrar contornos em altas frequências. Este efeito é facilmente observável novamente nas barbas do Tigre, nas qual é mais facilmente ver os contornos com `Sobel` do que `Prewitt`.
 
 Finalmente, para o filtro `unsharp`, os resultados foram os seguintes:
 
