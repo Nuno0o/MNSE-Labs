@@ -204,7 +204,7 @@ Para o filtro `Motion`, os resultados observados foram os seguintes:
 
 Este filtro cria uma sensação de movimento ou vibração da imagem na direção horizontal. Observa-se principalmente do resultado com dimensão 10 que parece que o tigre está em movimento.
 
-Este efeito é conseguido ao criar uma média com dimensão N dos píxeis presentes horizontalmente, conseguindo assim um efeito de "blur" linear nessa direção.
+Este efeito é conseguido ao criar uma média com dimensão N dos píxeis presentes horizontalmente, conseguindo assim um efeito de "blur" linear nessa direção. Ao a imagem ser replicada horizontalmente, cria-se este efeito devido à semelhança ao efeito de persistência nos olhos humanos que resulta de movimentos reais.
 
 Com os filtros `Average` e `Gaussian`, os resultados foram os seguintes:
 
@@ -215,4 +215,26 @@ Com os filtros `Average` e `Gaussian`, os resultados foram os seguintes:
 |Original|Gaussian(Dimensão 3)|Gaussian(Dimensão 10)|
 |-|-|-|
 |![](images/tigre.bmp)|![](images/tigre-gaussian-3.bmp)|![](images/tigre-gaussian-10.bmp)|
+
+Estes filtros criam um efeito de "blur" na imagem, com objetivo de reduzir altas frequências. No entanto, utilizam algoritmos diferentes.
+
+O primeiro(Average) utiliza a média dos pixeis à volta do pixel em questão para o efeito, enquanto que o segundo(Gaussian) utiliza uma curva de Gauss para calcular a influência dos pixeis que rodeiam cada pixel da imagem original.
+
+Pode-se confirmar que os efeitos do filtro Average são excessivas, causando demasiado "blur", enquanto que Gaussian blur criou contornos muito mais suaves, sendo esta mudança mais notificável, por exemplo, nos bigodes do Leão, e eliminando mesmo assim altas frequências.
+
+Para os filtros `Prewitt` e `Sobel`, os resultados observados foram os seguintes:
+
+|Original|Prewitt Horizontal|Prewitt Vertical|
+|-|-|-|
+|![](images/tigre.bmp)|![](images/tigre-prewitt-horizontal.bmp)|![](images/tigre-prewitt-vertical.bmp)|
+
+|Original|Sobel Horizontal|Sobel Vertical|
+|-|-|-|
+|![](images/tigre.bmp)|![](images/tigre-sobel-horizontal.bmp)|![](images/tigre-sobel-vertical.bmp)
+
+Finalmente, para o filtro `unsharp`, os resultados foram os seguintes:
+
+|Original|Unsharp(Factor 0.2)|Unsharp(Factor 0.8)|
+|-|-|-|
+|![](images/tigre.bmp)|![](images/tigre-unsharp-0.bmp)|![](images/tigre-unsharp-1.bmp)
 
