@@ -1,6 +1,20 @@
 # Relatório de MNSE : Lab 2
 ## Elaborado por Nuno Jorge Dias Carneiro Martins / up201405079
 
+
+- [1. Espaços de cor](#1-espa%C3%A7os-de-cor)
+	- [1.1. Conversão de RGB para HSV](#11-convers%C3%A3o-de-rgb-para-hsv)
+	- [1.2. Conversão de RGB para YCbCr](#12-convers%C3%A3o-de-rgb-para-ycbcr)
+	- [1.3 Conversão de RGB para YUV](#13-convers%C3%A3o-de-rgb-para-yuv)
+- [2. Variação  das  dimensões  espaciais  de  imagem  usando  ou  não  filtros  com imagem de teste “imzoneplate”](#2-varia%C3%A7%C3%A3o-das-dimens%C3%B5es-espaciais-de-imagem-usando-ou-n%C3%A3o-filtros-com-imagem-de-teste-%E2%80%9Cimzoneplate%E2%80%9D)
+	- [Redução de imagem](#redu%C3%A7%C3%A3o-de-imagem)
+	- [Ampliação de imagem](#amplia%C3%A7%C3%A3o-de-imagem)
+- [3. Experiências de filtragem](#3-experi%C3%AAncias-de-filtragem)
+	- [Filtro motion](#filtro-motion)
+	- [Filtros Average e Gaussian](#filtros-average-e-gaussian)
+	- [Filtros Prewitt e Sobel](#filtros-prewitt-e-sobel)
+	- [Filtro Unsharp](#filtro-unsharp)
+
 ## 1. Espaços de cor
 
 Na primeira parte deste trabalho, é pedido que sejam usasa scripts `Matlab` que leiam ficheiros `.bmp`(bitmap), e que seja analisada a representação destes em diferentes espaços de cor.  
@@ -196,6 +210,8 @@ Nesta última experiência, o objetivo é aplicar diferentes filtros a imagems e
 * `Sobel` : faz o mesmo que prewitt, mas realiza alguma suavização
 * `Unsharp` : realça todos os cantos das imagens
 
+### Filtro motion
+
 Para o filtro `Motion`, os resultados observados foram os seguintes:
 
 |Original|Motion(Dimensão 3)|Motion(Dimensão 10)|
@@ -205,6 +221,8 @@ Para o filtro `Motion`, os resultados observados foram os seguintes:
 Este filtro cria uma sensação de movimento ou vibração da imagem na direção horizontal. Observa-se principalmente do resultado com dimensão 10 que parece que o tigre está em movimento.
 
 Este efeito é conseguido ao criar uma média com dimensão N dos píxeis presentes horizontalmente, conseguindo assim um efeito de "blur" linear nessa direção. Ao a imagem ser replicada horizontalmente, cria-se este efeito devido à semelhança ao efeito de persistência nos olhos humanos que resulta de movimentos reais.
+
+### Filtros Average e Gaussian
 
 Com os filtros `Average` e `Gaussian`, os resultados foram os seguintes:
 
@@ -221,6 +239,8 @@ Estes filtros criam um efeito de "blur" na imagem, com objetivo de reduzir altas
 O primeiro(Average) utiliza a média dos pixeis à volta do pixel em questão para o efeito, enquanto que o segundo(Gaussian) utiliza uma curva de Gauss para calcular a influência dos pixeis que rodeiam cada pixel da imagem original.
 
 Pode-se confirmar que os efeitos do filtro Average são excessivos, causando demasiado "blur", enquanto que Gaussian blur criou contornos muito mais suaves, sendo esta mudança mais notificável, por exemplo, nos bigodes do Leão, e eliminando mesmo assim altas frequências.
+
+### Filtros Prewitt e Sobel
 
 Para os filtros `Prewitt` e `Sobel`, os resultados observados foram os seguintes:
 
@@ -253,6 +273,8 @@ Para o filtro `Prewitt`, a matriz usada é:
 Observa-se que os contornos horizontais e verticais adquiriram uma cor branca, existindo ligeiras diferenças entre o filtro `Prewitt` e `Sobel`.
 
 A principal diferença reside na deteção de altas frequências na deteção de contornos. Devido ao filtro `Prewitt` não realizar suavização, é muitas vezes difícil encontrar contornos em situações com altas frequências, enquanto que o filtro `Sobel` realiza suavização, tendo maior facilidade em encontrar contornos em altas frequências. Este efeito é facilmente observável novamente nas barbas do Tigre, nas qual é mais facilmente ver os contornos com `Sobel` do que `Prewitt`.
+
+### Filtro Unsharp
 
 Finalmente, para o filtro `unsharp`, os resultados foram os seguintes:
 
